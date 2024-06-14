@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tes CSS</title>
+    <!-- <style>
+        * {
+            /* Universal CSS dengan ciri khas menggunakan Bintang */
+            margin: 0 auto; 
+        }
+    </style> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+            margin: 0 auto;
+        }
+
+        /* TAG SELECTOR */
+        /* h1 {
+            background-color: blue;
+            color: white;
+        }
+        h2 {
+            background-color: black;
+            color: bisque;
+        } */
+
+        /* ID SELECTOR = menggunakan awalan tanda # (pagar)*/
+        .rule-1{
+            background-color: blue;
+            color: white;
+        }
+        #rule-2{
+            background-color: black;
+            color: yellow;
+        }
+
+        /* CLASS SELECTOR = Menggunakan awalan tanda . (titik)*/
+        .rule-3{
+            
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        /* ATRIBUT SELECTOR  */
+        /* PANJANG TEXTBOX YANG TIPENYA TEXT ADALAH 100%  */
+        input[type="text"]{
+            width: 100%;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text"> 
+    <h1 class="rule-1 rule-3">Selamat Datang</h1>
+    <br>
+    <h1 id="rule-2">Uwe</h1>
+    <h2>UKDW Unggul</h2>
+</body>
+
+</html>

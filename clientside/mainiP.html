@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Freelancer Search</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 py-4 bg-info">
+                <h1 class="text-center text-white">Freelancer Search</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group mt-4">
+                    <input type="text" class="form-control" id="search-input" placeholder="Search freelancers...">
+                    <div class="input-group-append">
+                        <button onclick="hasilPencarian()" type="submit" class="btn btn-info">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row" id="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function hasilPencarian() {
+            let query = $('#search-input').val();
+            $.ajax({
+                url: 'http://127.0.0.1:8000/api/freelancers/search', // Pastikan URL benar
+                method: 'GET',
+                data: { query: query },
+                success: function (res) {
+                    console.log("Response from API:", res); // Logging response
+                    $('#result').empty();
+                    if (res.length > 0 && query !== ""){
+                        res.forEach(function(item){
+                            let card = `
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${item.nama}</h5>
+                                                    <p class="card-text">${item.spesialisasi}</p>
+                                                    <p class="card-text">Rating: ${item.rating}</p>
+                                                    <p class="card-text">Lokasi: ${item.lokasi}</p>
+                                                    <p class="card-text">Kontak: ${item.kontak}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                            `;
+                            $('#result').append(card);
+                        })
+                    } else {
+                        $('#result').html('<div class="col-md-12"><p class="text-center">Data Tidak Ditemukan</p></div>')
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error("Error during API request:", textStatus, errorThrown); // Logging error
+                    console.error("Response text:", jqXHR.responseText); // Logging response text
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

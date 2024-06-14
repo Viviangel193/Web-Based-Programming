@@ -1,0 +1,57 @@
+.header {
+    background-color: #007bff; /* Warna biru tua */
+    color: white; /* Warna teks putih */
+}
+
+/* Tambahkan gaya untuk kartu freelancer */
+.card-freelancer {
+    border: 1px solid #ddd; /* Tambahkan garis tepi */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.card-freelancer:hover {
+    transform: translateY(-10px); /* Animasi melayang saat digulir */
+}
+
+.card-freelancer .card-body {
+    padding: 20px;
+}
+
+.card-freelancer .card-title {
+    margin-bottom: 10px;
+}
+
+.card-freelancer .card-text {
+    color: #666; /* Warna teks yang lebih gelap */
+}
+
+.btn-delete {
+    background-color: #006400; /* Warna hijau tua */
+    border-color: #006400;
+}
+
+.btn-delete:hover {
+    background-color: #004b23; /* Warna hijau tua yang lebih gelap saat dihover */
+    border-color: #004b23;
+}
+
+
+
+/* Sidebar style */
+.sidebar {
+    background-color: #f8f9fa; /* Warna abu-abu muda */
+}
+
+
+
+.sidebar .nav-link {
+    color: #495057;
+    border-radius: 0;
+}
+
+.sidebar .nav-link.active {
+    background-color: #006400; /* Warna hijau tua */
+    color: white;
+}
